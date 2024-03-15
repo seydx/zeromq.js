@@ -23,5 +23,9 @@
       "ES2020",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "examples",
+    "build"
+  ]
 }

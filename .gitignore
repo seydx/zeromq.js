@@ -23,3 +23,9 @@ tsconfig.tsbuildinfo
 /docs-raw
 .DS_Store
 .idea
+/test/unit/*.d.ts
+/test/unit/*.js
+/test/unit/*.js.map
+/src/*.d.ts
+/src/*.js
+/src/*.js.map

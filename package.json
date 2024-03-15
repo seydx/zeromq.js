@@ -1,5 +1,5 @@
 {
-  "name": "zeromq",
+  "name": "@seydx/zeromq",
   "version": "6.0.0-beta.19",
   "description": "Next-generation ZeroMQ bindings for Node.js",
   "main": "lib/index.js",
@@ -25,6 +25,7 @@
     "shx": "^0.3.4"
   },
   "devDependencies": {
+    "@seydx/zeromq-binaries": "^0.2.3",
     "@types/chai": "^4.3.4",
     "@types/fs-extra": "^9.0.13",
     "@types/mocha": "^10.0.0",
@@ -89,6 +90,7 @@
     "build.doc": "typedoc --options ./typedoc.json && minify-all -s docs-raw -d docs --jsCompressor terser",
     "deploy.doc": "run-s build.doc && gh-pages --dist \"./docs\"",
     "prebuild": "run-s build.js && node ./script/prebuild.js",
+    "download": "node ./script/download.js",
     "build.native": "node-gyp configure --release && node-gyp build --release",
     "build.native.debug": "cross-env CMAKE_BUILD_TYPE=Debug node-gyp configure --debug && cross-env CMAKE_BUILD_TYPE=Debug node-gyp build --debug",
     "build": "run-s build.js build.native",
@@ -103,7 +105,7 @@
     "lint": "run-p lint.eslint lint.clang-format",
     "lint-test": "run-s lint-test.eslint",
     "bench": "node --expose-gc test/bench",
-    "prepublishOnly": "pnpm run build.js"
+    "prepublishOnly": "pnpm run download && pnpm run build.js"
   },
   "keywords": [
     "zeromq",
